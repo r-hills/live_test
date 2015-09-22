@@ -1,0 +1,28 @@
+{% set vars = {
+    'page_title': 'New Habit Name',
+    'css_url': '/css/new_habit_styles.css'
+}
+
+%}
+{% include 'partials/header.html.twig' with vars %}
+
+  <body>
+      <!-- Navbar twig template -->
+
+      {% set active_page = '/habit/new_habit_name' %}
+      {% include 'partials/nav.html' %}
+    <p>Here are the number of days you have completed your habit: {{ days }}</p>
+
+    <p>Have you done your habit today?</p>
+
+    <form action="/coach/active_habit/success/{{ habit.getId }}" method="post">
+      <button type='submit'>Yes</button>
+    </form>
+
+    <form action="/coach/active_habit/fail/{{ habit.getId }}">
+      <button type='submit'>No</button>
+    </form>
+
+
+  </body>
+</html>
